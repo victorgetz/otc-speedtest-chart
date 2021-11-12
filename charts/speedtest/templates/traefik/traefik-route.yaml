@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{.Release.Name}}
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: PathPrefix(`/speedtest`)
+      priority: 1000
+      middlewares:
+        - name: strip-prefix-{{ .Release.Name }}
+          namespace: {{.Release.Namespace}}
+      services:
+        - kind: Service
+          name: {{ .Release.Name }}
+          namespace: {{.Release.Namespace}}
+          passHostHeader: true
+          port: 80

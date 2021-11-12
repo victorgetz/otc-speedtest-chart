@@ -1,0 +1,4 @@
+apiVersion: v2
+description: speedtest for otc
+name: speedtest
+version: 0.1.0

@@ -1,0 +1,3 @@
+Copy now the files into the container like this:
+
+kubectl cp speedtest/files/speedtest speedtest-68ccd84c9b-99w9n:/usr/share/nginx/html/speedtest

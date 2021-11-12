@@ -1,0 +1,19 @@
+elbID: "REPLACE_ME"
+ingressClass: "nginx"
+nginx:
+  replicaCount: 1
+  image:
+    repository: nginx
+    tag: 1.13.6-alpine
+  service:
+    port: 80
+    type: ClusterIP
+  health:
+    port: 80
+  resources:
+    requests:
+      memory: "4Mi"
+      cpu: "1m"
+    limits:
+      memory: "32Mi"
+      cpu: "10m"

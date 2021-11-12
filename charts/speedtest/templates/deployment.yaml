@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ .Chart.Name }}
+spec:
+    selector:
+        matchLabels:
+            app: {{ .Chart.Name }}
+            release: {{ .Chart.Name }}
+    replicas: {{default 2 .Values.nginx.replicaCount }}
+    template:
+        metadata:
+            labels:
+                app: {{ .Chart.Name }}
+                release: {{ .Chart.Name }}
+        spec:
+            containers:
+                - name: {{  .Chart.Name }}
+                  image: {{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}
+                  imagePullPolicy: {{ default "IfNotPresent" .Values.nginx.image.pullPolicy }}
+                  ports:
+                      - name: app-internal
+                        containerPort: {{ .Values.nginx.service.port }}
+            volumes:
+                - name: {{ .Chart.Name }}-pages
+                  secret:
+                    secretName: {{ .Chart.Name }}-pages
