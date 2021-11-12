@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  speedtest:
+  - apiVersion: v2
+    created: "2021-11-12T16:54:37.431683896Z"
+    description: speedtest for otc
+    digest: f81fbe4de46754005ba5b3b6dffb66551747b5771b4f507f05f5191990004582
+    name: speedtest
+    urls:
+    - https://github.com/victorgetz/otc-speedtest-chart/releases/download/speedtest-0.1.0/speedtest-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-11-12T16:54:37.431823097Z"
